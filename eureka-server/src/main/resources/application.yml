@@ -1,0 +1,18 @@
+#spring.application.name=eureka-server
+
+spring:
+  security:
+    basic.enabled: true
+    user:
+      name: adidas
+      password: ZB898dGnv9x3D7
+
+# default port for eureka server
+server.port: 8761
+
+eureka:
+#  server:
+#    enableSelfPreservation: false
+  client:
+    register-with-eureka: false
+    fetch-registry: false

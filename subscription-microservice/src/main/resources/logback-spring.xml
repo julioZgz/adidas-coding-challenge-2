@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+
+	<springProperty scope="context" name="appLogLevel" source="app.logLevel" defaultValue="ERROR" />
+	<springProperty scope="context" name="appRootLogLevel" source="app.rootLogLevel" defaultValue="ERROR" />
+	<springProperty scope="context" name="consoleAppenderEnabled" source="app.consoleAppenderEnabled" defaultValue="false" />
+	
+	<root level="${appRootLogLevel}">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+	
+	<logger name="org.julio.gregorio.adidas.subscription" level="${appLogLevel}" additivity="false">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+</configuration>

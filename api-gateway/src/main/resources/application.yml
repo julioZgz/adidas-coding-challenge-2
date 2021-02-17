@@ -1,0 +1,54 @@
+spring.application.name: api-gateway
+
+server.port: 8762
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://adidas:ZB898dGnv9x3D7@localhost:8761/eureka/
+
+# A prefix that can added to beginning of all requests. 
+#zuul.prefix=/api
+
+# Disable accessing services using service name (i.e. subscription-service).
+# They should be only accessed through the path defined below.
+#zuul.ignored-services: *
+
+# Map paths to services
+zuul:
+  routes:
+    subscription-service:
+      path: /api/subscription/**
+      service-id: subscription-microservice
+#      stripPrefix: true
+    email-service:
+      path: /api/email/**
+      service-id: email-microservice
+#      stripPrefix: true
+
+spring:
+  jpa.show-sql: true
+  datasource.url: jdbc:h2:mem:testdb
+  data.jpa.repositories.bootstrap-mode: default
+  h2.console.enabled: true
+
+app:
+  consoleAppenderEnabled: true
+  logLevel: DEBUG #Default level ERROR
+  rootLogLevel: INFO #Default level INFO
+  name: spring boot application
+  api:
+    swagger.enable: true
+    contact-name: Julio Gregorio de la Riva
+    contact-email: julio.gregorio.zgz@gmail.com
+    title: API Gateway APIs
+    description: API Gateway APIs description
+    base-package: org.julio.gregorio.adidas.subscriptionservice
+    version: 0.0.1-SNAPSHOT
+    group-name: API Gateway
+
+jwt.secret: techgeeknext
+
+zuul.sensitiveHeaders: Cookie,Set-Cookie

@@ -1,0 +1,32 @@
+server.port: 8003
+
+spring:
+  application.name: subscription-microservice
+  jpa.show-sql: true
+  datasource.url: jdbc:h2:mem:testdb
+  data.jpa.repositories.bootstrap-mode: default
+  h2.console.enabled: true
+
+app:
+  consoleAppenderEnabled: true
+  logLevel: DEBUG #Default level ERROR
+  rootLogLevel: INFO #Default level INFO
+  name: spring boot application
+  api:
+    swagger.enable: true
+    contact-name: Julio Gregorio de la Riva
+    contact-email: julio.gregorio.zgz@gmail.com
+    title: Subscription Service APIs
+    description: Subscription Service APIs description
+    base-package: org.julio.gregorio.adidas.subscriptionservice
+    version: 0.0.1-SNAPSHOT
+    group-name: Subscription Service
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://adidas:ZB898dGnv9x3D7@localhost:8761/eureka/
+
+email-microservice.host: http://localhost:8762/email-microservice/

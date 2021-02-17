@@ -1,0 +1,27 @@
+server.port: 8003
+
+spring:
+  application.name: subscription-microservice
+  jpa.show-sql: true
+  datasource.url: jdbc:h2:mem:testdb
+  data.jpa.repositories.bootstrap-mode: default
+  h2.console.enabled: true
+
+app:
+  consoleAppenderEnabled: true
+  logLevel: DEBUG #Default level ERROR
+  rootLogLevel: INFO #Default level INFO
+  name: spring boot application
+  api:
+    swagger.enable: true
+    contact-name: Julio Gregorio de la Riva
+    contact-email: julio.gregorio.zgz@gmail.com
+    title: Subscription Service APIs
+    description: Subscription Service APIs description
+    base-package: org.julio.gregorio.adidas.subscriptionservice
+    version: 1.0.0
+    group-name: Subscription Service
+
+jwt.secret: techgeeknext
+
+eureka.client.enabled: false

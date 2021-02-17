@@ -1,0 +1,41 @@
+server.port: 8004
+
+spring:
+  application.name: email-microservice
+  jpa.show-sql: true
+  datasource.url: jdbc:h2:mem:testdb
+  data.jpa.repositories.bootstrap-mode: default
+  h2.console.enabled: true
+# To enable real email system change app.emailEnabled to true and privide a valid smtp configuration
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: 
+#    password: 
+#    properties.mail.smtp: 
+#      starttls.enable: true
+#      starttls.required: true
+#      auth: true
+#      connectiontimeout: 5000
+#      timeout: 5000
+#      writetimeout: 5000 
+
+app:
+  emailEnabled: false
+  consoleAppenderEnabled: true
+  logLevel: DEBUG #Default level ERROR
+  rootLogLevel: INFO #Default level INFO
+  name: spring boot application
+  api:
+    swagger.enable: true
+    contact-name: Julio Gregorio de la Riva
+    contact-email: julio.gregorio.zgz@gmail.com
+    title: Email Service APIs
+    description: Email Service APIs description
+    base-package: org.julio.gregorio.adidas.subscriptionservice
+    version: 1.0.0
+    group-name: Email Service
+
+jwt.secret: techgeeknext
+
+eureka.client.enabled: false
